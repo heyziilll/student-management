@@ -11,7 +11,16 @@ A student directory built with Node.js, Express, EJS, and MySQL.
 
 1. Install dependencies with `npm install`.
 2. Run `schema.sql` in MySQL Workbench or another MySQL client.
-3. If your MySQL root account has a password, update the `password` value in `app.js`.
+3. Set database environment variables in PowerShell if your MySQL settings differ from the local defaults:
+
+   ```powershell
+   $env:DB_HOST = "localhost"
+   $env:DB_USER = "root"
+   $env:DB_PASSWORD = "your-local-password"
+   $env:DB_NAME = "student_management"
+   ```
+
+   Keep real passwords private. These PowerShell variables apply to the current terminal session.
 4. Start the server with `npm start`.
 5. Open <http://localhost:3000>.
 
@@ -36,5 +45,6 @@ student-management/
 └── schema.sql
 ```
 
-The `.env` file is ignored by Git. The current app reads its database settings
-from `app.js`; keep local credentials private and do not commit them.
+The app reads database settings from environment variables and uses local
+defaults when they are not set. `.env` is ignored by Git; never commit a file
+containing real credentials.
