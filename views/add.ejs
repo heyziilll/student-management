@@ -5,17 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f4f7fb">
   <title>Add student | Campus</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="/" aria-label="Campus student directory home">
-        <span class="brand-mark" aria-hidden="true">C</span>
-        <span>campus<span class="brand-light"> / students</span></span>
-      </a>
-      <a class="topbar-link" href="/">Back to directory</a>
-    </header>
+    <%- include('partials/header', { backLink: '/' }) %>
 
     <main class="main-content form-page">
       <a class="back-link" href="/">
@@ -70,7 +64,7 @@
           </div>
         </form>
       </section>
-      <footer class="footer-note">Student Management System</footer>
+      <%- include('partials/footer') %>
     </main>
   </div>
 </body>

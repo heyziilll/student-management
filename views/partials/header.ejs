@@ -1,0 +1,11 @@
+<header class="topbar">
+  <a class="brand" href="/" aria-label="Campus student directory home">
+    <span class="brand-mark" aria-hidden="true">C</span>
+    <span>campus<span class="brand-light"> / students</span></span>
+  </a>
+  <% if (typeof backLink === 'string') { %>
+    <a class="topbar-link" href="<%= backLink %>">Back to directory</a>
+  <% } else { %>
+    <span class="topbar-label"><%= sectionLabel %></span>
+  <% } %>
+</header>
