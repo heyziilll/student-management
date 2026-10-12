@@ -4,10 +4,10 @@ const path = require('path');
 
 const app = express();
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'student_management'
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'student_management'
 });
 
 app.set('view engine', 'ejs');
@@ -45,13 +45,14 @@ app.get('/students/search', (req, res) => {
     WHERE student_id LIKE ?
        OR first_name LIKE ?
        OR last_name LIKE ?
+       OR email LIKE ?
        OR course LIKE ?
     ORDER BY id DESC
   `;
 
   db.query(
     sql,
-    [searchValue, searchValue, searchValue, searchValue],
+    [searchValue, searchValue, searchValue, searchValue, searchValue],
     (err, results) => {
       if (err) {
         console.error(err);
@@ -95,6 +96,22 @@ app.post('/students/add', (req, res) => {
     if (err) {
       console.error(err);
       return res.status(500).send('Unable to save student');
+    }
+
+    res.redirect('/');
+  });
+});
+
+app.post('/students/:id/delete', (req, res) => {
+  const studentId = req.params.id;
+  if (!/^[1-9]\d*$/.test(studentId)) {
+    return res.status(400).send('Invalid student ID');
+  }
+
+  db.query('DELETE FROM students WHERE id = ?', [studentId], (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Unable to delete student');
     }
 
     res.redirect('/');
