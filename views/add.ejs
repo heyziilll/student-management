@@ -3,32 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Student</title>
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Add student | Campus</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <h1>Add Student</h1>
-  <form action="/students/add" method="POST">
-    <label for="student_id">Student ID:</label><br>
-    <input id="student_id" type="text" name="student_id" required><br><br>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Campus student directory home">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span>campus<span class="brand-light"> / students</span></span>
+      </a>
+      <a class="topbar-link" href="/">Back to directory</a>
+    </header>
 
-    <label for="first_name">First Name:</label><br>
-    <input id="first_name" type="text" name="first_name" required><br><br>
+    <main class="main-content form-page">
+      <a class="back-link" href="/">
+        <span aria-hidden="true">←</span> All students
+      </a>
+      <section class="form-heading">
+        <p class="eyebrow">STUDENT RECORDS</p>
+        <h1>Add a student</h1>
+        <p class="page-subtitle">Enter the student’s details below to add them to the directory.</p>
+      </section>
 
-    <label for="last_name">Last Name:</label><br>
-    <input id="last_name" type="text" name="last_name" required><br><br>
+      <section class="panel form-panel">
+        <form action="/students/add" method="POST" class="student-form">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="student_id">Student ID <span class="required">*</span></label>
+              <input id="student_id" type="text" name="student_id" placeholder="e.g. 2026-0004" autocomplete="off" required>
+            </div>
+            <div class="form-field">
+              <label for="course">Course <span class="required">*</span></label>
+              <input id="course" type="text" name="course" placeholder="e.g. BS Information Technology" required>
+            </div>
+            <div class="form-field">
+              <label for="first_name">First name <span class="required">*</span></label>
+              <input id="first_name" type="text" name="first_name" placeholder="Enter first name" autocomplete="given-name" required>
+            </div>
+            <div class="form-field">
+              <label for="last_name">Last name <span class="required">*</span></label>
+              <input id="last_name" type="text" name="last_name" placeholder="Enter last name" autocomplete="family-name" required>
+            </div>
+            <div class="form-field">
+              <label for="year_level">Year level <span class="required">*</span></label>
+              <select id="year_level" name="year_level" required>
+                <option value="" disabled selected>Select year level</option>
+                <option value="1">1st year</option>
+                <option value="2">2nd year</option>
+                <option value="3">3rd year</option>
+                <option value="4">4th year</option>
+                <option value="5">5th year</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="email">Email address <span class="required">*</span></label>
+              <input id="email" type="email" name="email" placeholder="student@example.com" autocomplete="email" required>
+            </div>
+          </div>
 
-    <label for="course">Course:</label><br>
-    <input id="course" type="text" name="course" required><br><br>
-
-    <label for="year_level">Year Level:</label><br>
-    <input id="year_level" type="number" name="year_level" min="1" max="5" required><br><br>
-
-    <label for="email">Email:</label><br>
-    <input id="email" type="email" name="email" required><br><br>
-
-    <button type="submit">Save Student</button>
-  </form>
-  <br>
-  <a href="/">Back to Student List</a>
+          <p class="form-help"><span class="required">*</span> Required fields</p>
+          <div class="form-actions">
+            <a class="button button-secondary" href="/">Cancel</a>
+            <button class="button button-primary" type="submit">Save student</button>
+          </div>
+        </form>
+      </section>
+      <footer class="footer-note">Student Management System</footer>
+    </main>
+  </div>
 </body>
 </html>
