@@ -45,13 +45,14 @@ app.get('/students/search', (req, res) => {
     WHERE student_id LIKE ?
        OR first_name LIKE ?
        OR last_name LIKE ?
+       OR email LIKE ?
        OR course LIKE ?
     ORDER BY id DESC
   `;
 
   db.query(
     sql,
-    [searchValue, searchValue, searchValue, searchValue],
+    [searchValue, searchValue, searchValue, searchValue, searchValue],
     (err, results) => {
       if (err) {
         console.error(err);
