@@ -5,11 +5,11 @@
   --line: #e5eaf1;
   --paper: #ffffff;
   --canvas: #f4f7fb;
-  --blue: #167a68;
-  --blue-dark: #116455;
-  --blue-soft: #e8f5f1;
-  --green-soft: #e8f5f1;
-  --green: #176c58;
+  --blue: #315fe8;
+  --blue-dark: #244ccc;
+  --blue-soft: #edf2ff;
+  --green-soft: #eef2f7;
+  --green: #52647d;
   font-family: 'Segoe UI', Arial, sans-serif;
   color: var(--ink);
   background: var(--canvas);
@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(ellipse at 84% 0%, rgba(22, 122, 104, 0.07), transparent 31rem),
+    radial-gradient(ellipse at 84% 0%, rgba(49, 95, 232, 0.07), transparent 31rem),
     var(--canvas);
 }
 
@@ -75,7 +75,7 @@ select {
   background: var(--blue);
   color: white;
   font-size: 17px;
-  box-shadow: 0 5px 12px rgba(22, 122, 104, 0.2);
+  box-shadow: 0 5px 12px rgba(49, 95, 232, 0.2);
 }
 
 .brand-light {
@@ -172,7 +172,7 @@ h1 {
 .button-primary {
   background: var(--blue);
   color: white;
-  box-shadow: 0 5px 12px rgba(22, 122, 104, 0.16);
+  box-shadow: 0 5px 12px rgba(49, 95, 232, 0.16);
 }
 
 .button-primary:hover {
@@ -258,8 +258,8 @@ h1 {
 .search-form input:focus,
 .form-field input:focus,
 .form-field select:focus {
-  border-color: #63a99a;
-  box-shadow: 0 0 0 3px rgba(22, 122, 104, 0.11);
+  border-color: #7694f4;
+  box-shadow: 0 0 0 3px rgba(49, 95, 232, 0.11);
 }
 
 .empty-icon svg {
@@ -520,7 +520,7 @@ td {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(22, 122, 104, 0.4);
+  outline: 3px solid rgba(49, 95, 232, 0.4);
   outline-offset: 2px;
 }
 
